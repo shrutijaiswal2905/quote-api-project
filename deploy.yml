@@ -1,0 +1,11 @@
+---
+- name: Deploy Quote API Docker Container
+  hosts: local
+  tasks:
+    - name: Ensure Docker container is running
+      community.docker.docker_container:
+        name: quote-api
+        image: quote-api:latest
+        state: started
+        ports:
+          - "8081:8081"
